@@ -165,7 +165,8 @@ if __name__=="__main__":
 
     #print(AC3(Constraint_Graph, domains, Const_Dict))
     
-    #for row in Const_Dict[(2,3)]: print(row)
+    #for row in Const_Dict[(0,1)]: print(row)
 
     #input()
+
     print(backtracking(domains,Constraint_Graph,Const_Dict,deadline))

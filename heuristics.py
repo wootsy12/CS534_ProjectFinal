@@ -47,8 +47,9 @@ def lcv(var, dom, Const_Dict):
 
 def order_domain_values(var, dom, Const_Dict):
     ls = []
-    while len(dom) > 0:
-        val = lcv(var, dom, Const_Dict)
+    dom2 = dom.copy()
+    while len(dom2) > 0:
+        val = lcv(var, dom2, Const_Dict)
         ls.append(val)
-        dom.remove(val)
+        dom2.remove(val)
     return ls

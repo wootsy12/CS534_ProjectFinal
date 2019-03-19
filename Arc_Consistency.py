@@ -18,13 +18,11 @@ def AC3(Graph, Dom, const,deadline):
         print("Current Queue Size: ", len(queue.cont))
         print("Current Domain Values: ")
         for w in Dom: print(w)
-        input()
+        #input()
         edge = queue.dequeue()
         n1, n2 = edge[0], edge[1]
         #print(n1.value, n2.value)
-        if(0 in [n1.value,n2.value] and 1 in [n1.value,n2.value]):
-            print("fuck")
-            input()
+
         Dom1, Dom2 = Dom[n1.value], Dom[n2.value]
         #print(Dom1, Dom2)
         if len(Dom1) == 0 or len(Dom2) == 0: return False
@@ -34,15 +32,13 @@ def AC3(Graph, Dom, const,deadline):
                 if nbor.value != n2.value:
                     queue.push([n1, nbor])
                     queue.push([nbor, n1])
-    '''
     deadlines = {}
     for node in Graph.V:
         if(len(Dom[node.value])==1):
             for d in Dom[node.value]:
                 deadlines[d]=deadlines.get(d,0)+int(node.time)
     if(max(deadlines.values())>int(deadline)):
-        return True
-    '''
+        return False
 
     return True
 
@@ -61,7 +57,6 @@ def Revise(Dom1, Dom2, const_mat,graph):
         for val2 in Dom2:
             if const_mat[val1][val2]: exists = True
         if not exists:
-            #if(len(Dom1)>1):
-            #    Dom1.remove(val1)
+            Dom1.remove(val1)
             revised = True
     return revised
