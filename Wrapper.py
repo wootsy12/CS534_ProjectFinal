@@ -169,8 +169,18 @@ if __name__=="__main__":
 
     #print(AC3(Constraint_Graph, domains, Const_Dict))
     
-    #for row in Const_Dict[(0,1)]: print(row)
-
+    #for row in Const_Dict[(5,9)]: print(row)
     #input()
+    for i in range(len(variables)):
+        if(constraints['unaryExclusive'].get(i,False)):
 
+            for val in constraints['unaryExclusive'].get(i):
+                if(val in domains[i]):
+                    domains[i].remove(val)
+
+        if(constraints['unaryInclusive'].get(i,False)):
+            domains[i]=constraints['unaryInclusive'].get(i)
+    #print(domains)
+    
+    
     print(backtracking(domains,Constraint_Graph,Const_Dict,deadline))
