@@ -20,10 +20,15 @@ z
 22
 ##### - unary inclusive
 D q r
+G p r y z
 ##### - unary exclusive
+C q
+E z
+L y p
 ##### - binary equals
 C D
 E F
 ##### - binary not equals
 C G
 ##### - binary not simultaneous
+E G p z

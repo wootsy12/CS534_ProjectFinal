@@ -182,5 +182,14 @@ if __name__=="__main__":
             domains[i]=constraints['unaryInclusive'].get(i)
     #print(domains)
     
+    inv_variables = {v: k for k, v in variables.items()}
+    inv_values = {v: k for k, v in values.items()}
     
-    print(backtracking(domains,Constraint_Graph,Const_Dict,deadline))
+
+    solution = backtracking(domains,Constraint_Graph,Const_Dict,deadline)
+    if(solution):
+        print("\nFinal assignment:")
+        for idx, i in enumerate(solution):
+            print(str(inv_variables[idx])+": "+str(inv_values[int(i[0])]))
+    else:
+        print("No solution exists!")

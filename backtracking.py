@@ -12,6 +12,7 @@ def isComplete(domain):
 
 
 def backtracking(domain, graph, const, deadline):
+    print(domain)
     if isComplete(domain): return domain
     unassigned = getUnassignedVariable(domain,graph)
     
