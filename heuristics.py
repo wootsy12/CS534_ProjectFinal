@@ -4,6 +4,7 @@ mrv(Dom) returns a list of variables that are tied for the minimum remaining val
 deg(Dom, ls, Graph) is meant to break ties; of the variables included in ls (indicated by integer value,
     i.e., j for X_j), deg returns the one that has the most constraints with currently unassigned variables.
 '''
+import copy
 
 def getUnassignedVariable(Dom,graph):
     minrem = mrv(Dom)
@@ -47,7 +48,7 @@ def lcv(var, dom, Const_Dict):
 
 def order_domain_values(var, dom, Const_Dict):
     ls = []
-    dom2 = dom.copy()
+    dom2 = copy.deepcopy(dom)
     while len(dom2) > 0:
         val = lcv(var, dom2, Const_Dict)
         ls.append(val)

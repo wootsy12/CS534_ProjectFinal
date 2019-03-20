@@ -10,6 +10,7 @@ NEEDED METHODS:
 import graph_stuff as gr
 from Arc_Consistency import AC3
 from backtracking import backtracking
+import sys
 
 def Build_Constraint_Graph(inFile):
     '''
@@ -20,7 +21,7 @@ def Build_Constraint_Graph(inFile):
     '''
     Graph = gr.Graph([],[])
     inFile = inFile.split("\n")
-    deadline = -1
+    deadline = sys.maxsize
     sect, count = 0, 0
     values = {}
     variables = {}
@@ -133,8 +134,11 @@ def buildConstraintMatrix(var1, var2, constraints, values):
     return matrix
 
 if __name__=="__main__":
-    fname = "CSP_Test.txt"
-#    fname = "CSP_Test_Australia.txt"
+    if(len(sys.argv)<2):
+        print("run the code as follows:")
+        print("python Wrapper.py <filename>")
+        exit(0)
+    fname = sys.argv[1]
     fid = open(fname, "r")
     data = fid.read()
     fid.close()

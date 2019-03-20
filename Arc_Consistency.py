@@ -32,6 +32,7 @@ def AC3(Graph, Dom, const,deadline):
                 if nbor.value != n2.value:
                     queue.push([n1, nbor])
                     queue.push([nbor, n1])
+
     deadlines = {}
     for node in Graph.V:
         if(len(Dom[node.value])==1):

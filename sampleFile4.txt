@@ -20,6 +20,8 @@ z
 22
 ##### - unary inclusive
 D q r
+J q
+L p
 ##### - unary exclusive
 ##### - binary equals
 C D

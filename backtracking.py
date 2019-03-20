@@ -16,13 +16,13 @@ def backtracking(domain, graph, const, deadline):
     unassigned = getUnassignedVariable(domain,graph)
     
     vals = order_domain_values(unassigned,domain[unassigned],const)
-    temp = copy.deepcopy(domain)
     for val in vals:
-      
+        temp = copy.deepcopy(domain)
         domain[unassigned] = [val]
         if AC3(graph, domain, const, deadline):
-            return backtracking(domain, graph, const, deadline)
-
+            result = backtracking(domain, graph, const, deadline)
+            if result:
+                return result
         domain = temp
 
-    return False
+    return None
